@@ -38,7 +38,8 @@ services:
     restart: always
     environment:
       - SECRET_KEY=${SECRET_KEY:-django_secure_sme_crm_pro_secret_key_2025_vietnam}
-      - ENV_TYPE=production
+      - ENV_TYPE=dev
+      - ALLOW_LOOPBACK_FRONTEND_URL=True
       - DEBUG=False
       - DOMAIN_NAME=${DOMAIN_NAME:-http://localhost:8000}
       - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3000}

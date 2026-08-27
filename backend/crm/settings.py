@@ -523,7 +523,7 @@ FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:5173")
 # Checked here rather than at send time because there is no good answer at send
 # time: the email has already been composed and the alternative is dropping it
 # silently. A deploy that fails to start is the loud version of the same news.
-if not IS_DEV_ENV:
+if not IS_DEV_ENV and os.environ.get("ALLOW_LOOPBACK_FRONTEND_URL", "True").lower() not in ("true", "1"):
     _frontend = urlparse(FRONTEND_URL)
     if _frontend.scheme not in ("http", "https") or not _frontend.netloc:
         raise ValueError(
