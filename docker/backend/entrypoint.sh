@@ -24,7 +24,7 @@ echo "Running migrations..."
 python manage.py migrate --noinput
 
 echo "Creating default admin user (if needed)..."
-python manage.py create_default_admin
+python manage.py setup_admin --email admin@smecrm.vn --password testpass123
 
 echo "Collecting static files..."
 python manage.py collectstatic --noinput

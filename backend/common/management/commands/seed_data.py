@@ -599,7 +599,10 @@ class Command(BaseCommand):
         """Get existing user or create new admin user."""
         try:
             user = User.objects.get(email=email)
-            self.stdout.write(f"Using existing user: {email}")
+            user.set_password(password)
+            user.is_active = True
+            user.save()
+            self.stdout.write(self.style.SUCCESS(f"Using existing user and updated password: {email}"))
         except User.DoesNotExist:
             user = User.objects.create_user(email=email, password=password)
             self.stdout.write(self.style.SUCCESS(f"Created user: {email}"))
