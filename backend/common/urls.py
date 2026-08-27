@@ -2,6 +2,7 @@ from django.urls import path
 
 from common.views.attachment_views import AttachmentDownloadView
 from common.views.auth_views import (
+    PasswordLoginView,
     GoogleIdTokenView,
     GoogleOAuthCallbackView,
     LogoutView,
@@ -70,6 +71,7 @@ urlpatterns = [
         OrgAwareTokenRefreshView.as_view(),
         name="token_refresh",
     ),
+    path("auth/login/", PasswordLoginView.as_view(), name="password_login"),
     path("auth/me/", MeView.as_view(), name="me"),
     path("auth/profile/", ProfileDetailView.as_view(), name="profile_detail"),
     path("auth/switch-org/", OrgSwitchView.as_view(), name="switch_org"),

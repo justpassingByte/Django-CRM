@@ -1014,3 +1014,46 @@ class MagicLinkVerifyCodeView(APIView):
         if default_org:
             response_data["current_org"] = _org_payload(default_org)
         return Response(response_data, status=status.HTTP_200_OK)
+
+class PasswordLoginView(APIView):
+    """
+    Direct Email & Password Authentication for standard user sign-in.
+    """
+
+    permission_classes = []
+    authentication_classes = []
+
+    def post(self, request):
+        email = request.data.get("email", "").strip().lower()
+        password = request.data.get("password", "")
+
+        if not email or not password:
+            return Response(
+                {"error": "Vui lòng nhập đầy đủ Email và Mật khẩu!"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        user = User.objects.filter(email__iexact=email).first()
+        if not user or not user.check_password(password):
+            return Response(
+                {"error": "Email hoặc Mật khẩu không chính xác!"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+        if not user.is_active:
+            return _disabled_account_response()
+
+        user.last_login = timezone.now()
+        user.save(update_fields=["last_login"])
+
+        # Generate JWT tokens
+        token = OrgAwareRefreshToken.for_user_and_org(user, None)
+
+        return Response(
+            {
+                "access_token": str(token.access_token),
+                "refresh_token": str(token),
+                "user": {"id": str(user.id), "email": user.email, "name": user.name},
+            },
+            status=status.HTTP_200_OK,
+        )
