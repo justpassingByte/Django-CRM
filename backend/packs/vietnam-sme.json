@@ -1,0 +1,242 @@
+{
+  "id": "vietnam-sme",
+  "version": 1,
+  "name": "Doanh Nghiệp SME Việt Nam",
+  "description": "Gói chuẩn hóa quy trình Bán hàng B2B, Quản lý Khách hàng, Báo giá & Chăm sóc khách hàng cho doanh nghiệp Việt Nam.",
+  "terminology": {
+    "lead.singular": "Khách tiềm năng",
+    "lead.plural": "Khách tiềm năng (Leads)",
+    "opportunity.singular": "Cơ hội kinh doanh",
+    "opportunity.plural": "Cơ hội kinh doanh (Deals)",
+    "account.singular": "Doanh nghiệp / Khách hàng",
+    "account.plural": "Khách hàng doanh nghiệp (Accounts)",
+    "contact.singular": "Người liên hệ",
+    "contact.plural": "Danh bạ liên hệ (Contacts)",
+    "case.singular": "Yêu cầu hỗ trợ",
+    "case.plural": "Yêu cầu hỗ trợ (Tickets)",
+    "task.singular": "Nhiệm vụ",
+    "task.plural": "Công việc & Nhiệm vụ"
+  },
+  "lead_pipeline": {
+    "name": "Quy trình chuyển đổi Lead",
+    "description": "Từ tiếp cận ban đầu đến khi chốt hợp đồng thành công.",
+    "stages": [
+      {
+        "name": "Mới tiếp cận",
+        "order": 1,
+        "stage_type": "open",
+        "color": "#6B7280"
+      },
+      {
+        "name": "Đã liên hệ tư vấn",
+        "order": 2,
+        "stage_type": "open",
+        "color": "#3B82F6"
+      },
+      {
+        "name": "Gửi báo giá / Demo",
+        "order": 3,
+        "stage_type": "open",
+        "color": "#8B5CF6"
+      },
+      {
+        "name": "Đàm phán hợp đồng",
+        "order": 4,
+        "stage_type": "open",
+        "color": "#F59E0B"
+      },
+      {
+        "name": "Chốt đơn thành công",
+        "order": 5,
+        "stage_type": "won",
+        "color": "#10B981"
+      },
+      {
+        "name": "Không thành công",
+        "order": 6,
+        "stage_type": "lost",
+        "color": "#EF4444"
+      }
+    ]
+  },
+  "opportunity_pipeline": {
+    "name": "Phễu Cơ hội B2B",
+    "description": "Theo dõi giá trị hợp đồng và xác suất chốt đơn.",
+    "stages": [
+      {
+        "name": "Khảo sát nhu cầu",
+        "order": 1,
+        "stage_type": "open",
+        "color": "#6B7280"
+      },
+      {
+        "name": "Đề xuất giải pháp",
+        "order": 2,
+        "stage_type": "open",
+        "color": "#3B82F6"
+      },
+      {
+        "name": "Thương thảo điều khoản",
+        "order": 3,
+        "stage_type": "open",
+        "color": "#F59E0B"
+      },
+      {
+        "name": "Đã ký hợp đồng",
+        "order": 4,
+        "stage_type": "won",
+        "color": "#10B981"
+      },
+      {
+        "name": "Hủy giao dịch",
+        "order": 5,
+        "stage_type": "lost",
+        "color": "#EF4444"
+      }
+    ]
+  },
+  "case_pipeline": {
+    "name": "Chăm sóc & Hỗ trợ kỹ thuật",
+    "description": "Tiếp nhận và giải quyết phản hồi của khách hàng.",
+    "stages": [
+      {
+        "name": "Tiếp nhận mới",
+        "order": 1,
+        "stage_type": "open",
+        "color": "#6B7280"
+      },
+      {
+        "name": "Đang xử lý",
+        "order": 2,
+        "stage_type": "open",
+        "color": "#3B82F6"
+      },
+      {
+        "name": "Chờ khách hàng phản hồi",
+        "order": 3,
+        "stage_type": "open",
+        "color": "#F59E0B"
+      },
+      {
+        "name": "Đã giải quyết xong",
+        "order": 4,
+        "stage_type": "closed",
+        "color": "#10B981"
+      }
+    ]
+  },
+  "task_pipeline": {
+    "name": "Tiến độ công việc",
+    "description": "Quản lý công việc hàng ngày của nhân viên.",
+    "stages": [
+      {
+        "name": "Cần làm (Backlog)",
+        "order": 1,
+        "stage_type": "open",
+        "color": "#6B7280"
+      },
+      {
+        "name": "Đang thực hiện",
+        "order": 2,
+        "stage_type": "in_progress",
+        "color": "#3B82F6"
+      },
+      {
+        "name": "Chờ duyệt",
+        "order": 3,
+        "stage_type": "open",
+        "color": "#F59E0B"
+      },
+      {
+        "name": "Hoàn thành",
+        "order": 4,
+        "stage_type": "completed",
+        "color": "#10B981"
+      }
+    ]
+  },
+  "custom_fields": [
+    {
+      "target": "Lead",
+      "key": "nganh_nghe",
+      "label": "Ngành nghề kinh doanh",
+      "field_type": "text",
+      "is_filterable": true,
+      "display_order": 1
+    },
+    {
+      "target": "Lead",
+      "key": "ngan_sach_du_kien",
+      "label": "Ngân sách dự kiến (VNĐ)",
+      "field_type": "dropdown",
+      "is_filterable": true,
+      "display_order": 2,
+      "options": [
+        {
+          "value": "duoi_20tr",
+          "label": "Dưới 20 triệu VNĐ"
+        },
+        {
+          "value": "20tr_50tr",
+          "label": "20 - 50 triệu VNĐ"
+        },
+        {
+          "value": "50tr_100tr",
+          "label": "50 - 100 triệu VNĐ"
+        },
+        {
+          "value": "tren_100tr",
+          "label": "Trên 100 triệu VNĐ"
+        }
+      ]
+    },
+    {
+      "target": "Lead",
+      "key": "kenh_tiep_can",
+      "label": "Nguồn Lead",
+      "field_type": "dropdown",
+      "is_filterable": true,
+      "display_order": 3,
+      "options": [
+        {
+          "value": "facebook",
+          "label": "Facebook Ads / Fanpage"
+        },
+        {
+          "value": "google",
+          "label": "Google Tìm kiếm / SEO"
+        },
+        {
+          "value": "zalo",
+          "label": "Zalo OA / Zalo cá nhân"
+        },
+        {
+          "value": "referral",
+          "label": "Người quen giới thiệu"
+        },
+        {
+          "value": "hotline",
+          "label": "Gọi trực tiếp Hotline"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "VIP B2B",
+      "color": "emerald"
+    },
+    {
+      "name": "Khách Thân Thiết",
+      "color": "sky"
+    },
+    {
+      "name": "Cần Gọi Lại",
+      "color": "amber"
+    },
+    {
+      "name": "Tiềm Năng Cao",
+      "color": "violet"
+    }
+  ]
+}

@@ -172,12 +172,12 @@
     }
   });
 
-  // Five-section IA per spec §4
+  // Five-section IA per spec §4 (Vietnamese SME Localization)
   const workspaceItems = [
-    { href: '/', label: 'Home', icon: Home, type: 'link', preload: 'off', count: undefined },
+    { href: '/', label: 'Tổng quan', icon: Home, type: 'link', preload: 'off', count: undefined },
     {
       href: '/leads',
-      label: 'Pipeline',
+      label: 'Phễu bán hàng',
       icon: Activity,
       type: 'link',
       preload: 'off',
@@ -188,7 +188,7 @@
   const recordsItems = [
     {
       href: '/leads',
-      label: 'Leads',
+      label: 'Khách tiềm năng',
       icon: Target,
       type: 'link',
       preload: 'off',
@@ -196,7 +196,7 @@
     },
     {
       href: '/contacts',
-      label: 'Contacts',
+      label: 'Danh bạ liên hệ',
       icon: Users,
       type: 'link',
       preload: 'off',
@@ -204,7 +204,7 @@
     },
     {
       href: '/accounts',
-      label: 'Accounts',
+      label: 'Doanh nghiệp / Khách hàng',
       icon: Building,
       type: 'link',
       preload: 'off',
@@ -212,7 +212,7 @@
     },
     {
       href: '/opportunities',
-      label: 'Deals',
+      label: 'Cơ hội kinh doanh',
       icon: Sparkles,
       type: 'link',
       preload: 'off',
@@ -223,35 +223,35 @@
   const workItems = [
     {
       key: 'tickets',
-      label: 'Tickets',
+      label: 'Hỗ trợ khách hàng',
       icon: Briefcase,
       type: 'dropdown',
       count: undefined,
       children: [
         {
           href: '/tickets',
-          label: 'All tickets',
+          label: 'Tất cả Ticket',
           icon: Briefcase,
           preload: 'off',
           count: undefined
         },
         {
           href: '/tickets/approvals',
-          label: 'Approvals',
+          label: 'Phê duyệt yêu cầu',
           icon: ShieldCheck,
           preload: 'off',
           count: undefined
         },
         {
           href: '/tickets/analytics',
-          label: 'Analytics',
+          label: 'Thống kê & SLA',
           icon: BarChart3,
           preload: 'off',
           count: undefined
         },
         {
           href: '/solutions',
-          label: 'Knowledge base',
+          label: 'Kho giải pháp',
           icon: BookOpen,
           preload: 'off',
           count: undefined
@@ -260,7 +260,7 @@
     },
     {
       href: '/tasks',
-      label: 'Tasks',
+      label: 'Công việc & Nhiệm vụ',
       icon: CheckSquare,
       type: 'link',
       preload: 'off',
@@ -268,61 +268,61 @@
     },
     {
       href: '/timesheet',
-      label: 'Timesheet',
+      label: 'Chấm công & Thời gian',
       icon: Clock,
       type: 'link',
       preload: 'off',
       count: undefined
     },
-    { href: '/goals', label: 'Goals', icon: Trophy, type: 'link', preload: 'off', count: undefined }
+    { href: '/goals', label: 'Mục tiêu KPI', icon: Trophy, type: 'link', preload: 'off', count: undefined }
   ];
 
   const revenueItems = [
     {
       key: 'invoices',
-      label: 'Invoices',
+      label: 'Hóa đơn & Báo giá',
       icon: FileText,
       type: 'dropdown',
       count: undefined,
       children: [
         {
           href: '/invoices',
-          label: 'All Invoices',
+          label: 'Tất cả hóa đơn',
           icon: FileText,
           preload: 'off',
           count: undefined
         },
         {
           href: '/invoices/estimates',
-          label: 'Estimates',
+          label: 'Báo giá',
           icon: FileEdit,
           preload: 'off',
           count: undefined
         },
         {
           href: '/invoices/products',
-          label: 'Products',
+          label: 'Sản phẩm / Dịch vụ',
           icon: Package,
           preload: 'off',
           count: undefined
         },
         {
           href: '/invoices/recurring',
-          label: 'Recurring',
+          label: 'Hóa đơn định kỳ',
           icon: RefreshCw,
           preload: 'off',
           count: undefined
         },
         {
           href: '/invoices/templates',
-          label: 'Templates',
+          label: 'Mẫu hóa đơn',
           icon: FileCode,
           preload: 'off',
           count: undefined
         },
         {
           href: '/invoices/reports',
-          label: 'Reports',
+          label: 'Báo cáo doanh thu',
           icon: BarChart3,
           preload: 'off',
           count: undefined
@@ -334,7 +334,7 @@
   const supportItems = [
     {
       href: '/help',
-      label: 'Help desk',
+      label: 'Trợ giúp & Hướng dẫn',
       icon: HelpCircle,
       type: 'link',
       preload: 'off',
@@ -419,7 +419,7 @@
       <Sidebar.GroupLabel
         class="mb-1 h-auto px-3 text-[10px] leading-none font-semibold text-[color:var(--sidebar-subtle)] [text-transform:lowercase] [font-variant:small-caps] group-data-[collapsible=icon]:hidden"
       >
-        Workspace
+        Tổng quan
       </Sidebar.GroupLabel>
       <Sidebar.GroupContent>
         <Sidebar.Menu class="space-y-px">
@@ -575,7 +575,7 @@
       <Sidebar.GroupLabel
         class="mb-1 h-auto px-3 text-[10px] leading-none font-semibold text-[color:var(--sidebar-subtle)] [text-transform:lowercase] [font-variant:small-caps] group-data-[collapsible=icon]:hidden"
       >
-        Records
+        Dữ liệu kinh doanh
       </Sidebar.GroupLabel>
       <Sidebar.GroupContent>
         <Sidebar.Menu class="space-y-px">
@@ -731,7 +731,7 @@
       <Sidebar.GroupLabel
         class="mb-1 h-auto px-3 text-[10px] leading-none font-semibold text-[color:var(--sidebar-subtle)] [text-transform:lowercase] [font-variant:small-caps] group-data-[collapsible=icon]:hidden"
       >
-        Work
+        Quản lý công việc
       </Sidebar.GroupLabel>
       <Sidebar.GroupContent>
         <Sidebar.Menu class="space-y-px">
@@ -887,7 +887,7 @@
       <Sidebar.GroupLabel
         class="mb-1 h-auto px-3 text-[10px] leading-none font-semibold text-[color:var(--sidebar-subtle)] [text-transform:lowercase] [font-variant:small-caps] group-data-[collapsible=icon]:hidden"
       >
-        Revenue
+        Doanh thu & Hóa đơn
       </Sidebar.GroupLabel>
       <Sidebar.GroupContent>
         <Sidebar.Menu class="space-y-px">
@@ -1043,7 +1043,7 @@
       <Sidebar.GroupLabel
         class="mb-1 h-auto px-3 text-[10px] leading-none font-semibold text-[color:var(--sidebar-subtle)] [text-transform:lowercase] [font-variant:small-caps] group-data-[collapsible=icon]:hidden"
       >
-        Support
+        Hỗ trợ & CSKH
       </Sidebar.GroupLabel>
       <Sidebar.GroupContent>
         <Sidebar.Menu class="space-y-px">
@@ -1254,7 +1254,7 @@
                 />
               {/if}
               <span class="flex-1 text-[13px] font-medium group-data-[collapsible=icon]:hidden">
-                Collapse
+                Thu gọn
               </span>
             </button>
           {/snippet}

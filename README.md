@@ -1,105 +1,116 @@
-# BottleCRM: Open Source Django CRM for Startups & Enterprises
+# 🚀 SME CRM Pro (Django-CRM Commercial Edition) — COSS Vietnam
 
-A free, self-hosted, multi-tenant CRM built with Django REST Framework, SvelteKit and Flutter.
+[![Docker Ready](https://img.shields.io/badge/Docker-1--Click%20Deploy-blue.svg)](https://www.docker.com/)
+[![PostgreSQL 16](https://img.shields.io/badge/Database-PostgreSQL%2016-336791.svg)](https://www.postgresql.org/)
+[![Django 5](https://img.shields.io/badge/Backend-Django%20REST-092e20.svg)](https://www.djangoproject.com/)
+[![SvelteKit 2](https://img.shields.io/badge/Frontend-SvelteKit%202%20%2B%20Tailwind-ff3e00.svg)](https://kit.svelte.dev/)
+[![Language](https://img.shields.io/badge/Language-100%25%20Tiếng%20Việt-red.svg)]()
+[![Trustbase Verified](https://img.shields.io/badge/Platform-COSS%20Vietnam-orange.svg)]()
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.12+-green.svg)
-![Django](https://img.shields.io/badge/django-6.x-green.svg)
-![SvelteKit](https://img.shields.io/badge/sveltekit-2.x-orange.svg)
-![Svelte](https://img.shields.io/badge/svelte-5-orange.svg)
-![Flutter](https://img.shields.io/badge/flutter-3.44+-blue.svg)
-![Coverage](./coverage-badge.svg)
+> **SME CRM Pro** là phần mềm quản trị quan hệ khách hàng (CRM), phễu bán hàng B2B, quản lý báo giá và hợp đồng tự lưu trữ (**Self-hosted 100% On-Premise**) dành riêng cho doanh nghiệp vừa và nhỏ (SME 5-50 nhân sự) tại Việt Nam.
 
-**BottleCRM is an open source CRM you run on your own infrastructure.** It covers the full
-customer lifecycle: leads, accounts, contacts, opportunities, support tickets, tasks and
-invoices: through a SvelteKit web app, a native Flutter mobile app, and a documented REST API
-sharing one Django backend. PostgreSQL Row-Level Security isolates each organization's data at
-the database layer, so a single deployment serves one startup or hundreds of tenants.
+---
 
-No per-seat pricing, no user caps, no feature paywall. MIT licensed: fork it, self-host it, own
-your data.
+## 🎯 2 PHIÊN BẢN LINH HOẠT THEO NHU CẦU
 
-**[Try it free →](https://bottlecrm.io/)** · [Features](https://bottlecrm.io/features) · [Product docs](https://bottlecrm.io/docs) · [Pricing](https://bottlecrm.io/pricing) · [Migrate from Salesforce or HubSpot](https://bottlecrm.io/migration)
+| Tiêu chí | 🖥️ Phiên Bản 1: Dùng Nội Bộ Công Ty (Local / LAN) | ☁️ Phiên Bản 2: Truy Cập Online 24/7 (Cloud VPS) |
+| :--- | :--- | :--- |
+| **Mục đích** | Quản lý khách hàng, nhân viên kinh doanh nội bộ công ty | Toàn bộ nhân viên làm việc từ xa, gắn Tên Miền riêng |
+| **Chi phí duy trì** | **0đ / tháng** (Dữ liệu lưu 100% tại máy chủ công ty) | ~100.000đ - 150.000đ/tháng thuê VPS |
+| **Cơ sở dữ liệu** | PostgreSQL 16 + Redis trong Docker | PostgreSQL 16 + Redis trong Docker |
+| **Cách khởi động** | **1-Click nhấp đúp file `start-windows.bat`** | **1 Dòng lệnh `curl ... | bash`** trên VPS Ubuntu |
 
-(That's the marketing site's product documentation. For the technical documentation (self-hosting, architecture, the API, contributing) see [Documentation](#documentation) below.)
+---
 
-## Why BottleCRM
+## 🌟 TÍNH NĂNG THƯƠNG MẠI NỔI BẬT
 
-- **Free forever, MIT licensed**: unlimited users and records, no subscription. A genuinely
-  self-hosted CRM alternative to Salesforce, HubSpot and Pipedrive.
-- **Multi-tenant by design**: PostgreSQL Row-Level Security enforces tenant isolation in the
-  database, not just in application code. Run it for a single company or as a SaaS for many.
-- **Agent-ready REST API**: point Claude, Cursor, Codex, Gemini or any agent at the API with a
-  personal access token and let it search, create and update records *as you*, inheriting your
-  role, org and permissions. An OpenAPI schema ships with it, so the agent can discover the
-  endpoints itself.
-- **Web, native mobile and API**: one Django REST backend behind a Svelte 5 web app and a
-  Flutter app for iOS and Android.
-- **A stack you can actually hack on**: Django 6 / DRF and Svelte 5, not a bespoke in-house
-  framework. If your team writes Python, it can extend this on day one.
-- **Real support tooling**: a full helpdesk with SLA timers, approvals, escalations, macros and
-  a knowledge base, not a bolted-on ticket list.
+1. **100% Việt Hóa Chuẩn Nghiệp Vụ Doanh Nghiệp Việt:**
+   - Bản địa hóa toàn diện: Khách tiềm năng (Leads), Khách hàng doanh nghiệp (Accounts), Người liên hệ (Contacts), Cơ hội kinh doanh (Deals), Hóa đơn & Báo giá, Công việc (Tasks) và Kho giải pháp.
 
-## How it compares
+2. **Quản Lý Phễu Bán Hàng Trực Quan (Pipeline Kanban):**
+   - Kéo thả trạng thái Deal theo từng giai đoạn: *Tiếp cận ➔ Gửi báo giá ➔ Đàm phán ➔ Đã ký kết ➔ Thất bại*.
+   - Dự báo doanh số và đo lường tỷ lệ chuyển đổi của từng nhân viên kinh doanh (Sales).
 
-| | BottleCRM | SaaS CRM (Salesforce, HubSpot) | Typical open source CRM |
-|---|---|---|---|
-| **Cost** | Free, unlimited users | Per seat, per month | Free core, often paid tiers |
-| **Hosting** | Self-hosted (managed hosting available) | Vendor cloud only | Self-hosted |
-| **Data ownership** | Total. It is your database | Vendor-controlled | Total |
-| **Multi-tenancy** | Database-level RLS | Not applicable | Uncommon |
-| **Native mobile app** | Yes, Flutter, iOS + Android | Yes | Uncommon |
-| **AI agent access** | Full REST API, per-user tokens | Proprietary add-ons | Uncommon |
-| **Stack** | Django REST + SvelteKit | Closed source | Varies |
-| **License** | MIT | Proprietary | Varies, often GPL/AGPL |
+3. **Soạn Báo Giá (Estimates) & Hóa Đơn (Invoices) Chuyên Nghiệp:**
+   - Tạo báo giá mẫu gửi khách hàng, tự động chuyển báo giá thành hóa đơn khi chốt hợp đồng.
+   - Hỗ trợ xuất PDF và tạo hóa đơn định kỳ (Recurring Billing).
 
-## Quick start
+4. **Quản Lý Công Việc & Chấm Công (Tasks & Timesheet):**
+   - Phân công nhiệm vụ cho nhân viên, xem lịch theo dạng Kanban hoặc Calendar.
+   - Ghi nhận thời gian thực hiện dự án/hợp đồng của từng nhân sự.
 
+5. **Hệ Thống Hỗ Trợ Khách Hàng (Helpdesk & Tickets):**
+   - Tiếp nhận yêu cầu hỗ trợ, phân luồng ticket tự động, đo lường chỉ số hài lòng khách hàng (CSAT) và cam kết chất lượng dịch vụ (SLA).
+
+6. **Đóng Gói 1-Click Trọn Gói:**
+   - Tự động dựng toàn bộ cụm: PostgreSQL 16 + Redis 7 + Django REST + Celery + SvelteKit Web chỉ với 1 thao tác.
+
+---
+
+## ⚡ CÀI ĐẶT 1-DÒNG LỆNH (1-CLICK INSTALLER)
+
+### 🐧 Dành cho Máy chủ Linux / Cloud VPS (Ubuntu, Debian, CentOS):
+Mở terminal VPS và dán câu lệnh:
 ```bash
-git clone https://github.com/django-crm/Django-CRM.git
-cd Django-CRM
-docker compose up --build
+curl -fsSL https://raw.githubusercontent.com/justpassingByte/Django-CRM/master/install.sh | bash
 ```
 
-Frontend at http://localhost:5173, API and Swagger UI at http://localhost:8000/swagger-ui/. See
-the [Docker quick start guide](docs/getting-started/docker-quick-start.md) for the default admin
-login, loading demo data, and what each service does.
+### 🪟 Dành cho Máy tính Windows (PowerShell):
+Mở **PowerShell** trên Windows và dán:
+```powershell
+irm https://raw.githubusercontent.com/justpassingByte/Django-CRM/master/install.ps1 | iex
+```
 
-## Documentation
+Sau 1-2 phút, hệ thống sẽ tự động hoàn tất và hiển thị:
+* **Trang quản trị CRM:** `http://<IP_HOẶC_LOCALHOST>:3000`
+* **Tài khoản quản trị mặc định:** `admin@smecrm.vn`
+* **Mật khẩu:** `testpass123`
 
-The full documentation (setup, self-hosting, architecture, the REST API, and contributing) is
-built from this repository's [`docs/`](docs/) with MkDocs Material and publishes to Read the Docs
-at <https://django-crm.readthedocs.io/en/latest/>. Four starting points:
+---
 
-- **[Getting started](docs/getting-started/docker-quick-start.md)**: Docker and manual setup, first sign-in, demo data.
-- **[Self-hosting](docs/self-hosting/requirements.md)**: requirements, production deployment, PostgreSQL and Row-Level Security, backups, security hardening.
-- **[API reference](docs/api/conventions.md)**: authentication, conventions, and every documented endpoint.
-- **[Contributing](docs/contributing/development-setup.md)**: local development setup, testing, code style, and how to open a pull request.
+## 🌐 HƯỚNG DẪN CẤU HÌNH TÊN MIỀN (CUSTOM DOMAIN) & SSL HTTPS
 
-## Contributing
+1. **Trỏ DNS Tên Miền:**
+   * Tạo bản ghi `A` trỏ về IP của VPS (VD: `crm.tencongty.vn` ➔ `103.x.x.x`).
+2. **Cấu hình Nginx Reverse Proxy:**
+   ```nginx
+   server {
+       listen 80;
+       server_name crm.tencongty.vn;
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, development checks, and pull request guidance.
+       location / {
+           proxy_pass http://127.0.0.1:3000;
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+       }
+   }
+   ```
+3. **Cấp SSL HTTPS miễn phí:**
+   ```bash
+   sudo certbot --nginx -d crm.tencongty.vn
+   ```
 
-## Community
+---
 
-- **Issues**: [GitHub Issues](https://github.com/django-crm/Django-CRM/issues)
-- **Twitter**: [@micropyramid](https://twitter.com/micropyramid)
-- **Commercial Support**: [Contact us](https://micropyramid.com/contact/)
+## 🛠️ CÁC LỆNH QUẢN TRỊ NHANH
 
-## License
+* **Nạp lại dữ liệu mẫu (Seed Demo Data):**
+  ```bash
+  docker compose -f docker-compose.prod.yml exec backend python manage.py seed_data --email admin@smecrm.vn --orgs 1 --leads 50 --accounts 20 --contacts 30 --opportunities 15 --tasks 25 --no-input
+  ```
+* **Xem log thời gian thực:**
+  ```bash
+  docker compose -f docker-compose.prod.yml logs -f
+  ```
+* **Khởi động lại:**
+  ```bash
+  docker compose -f docker-compose.prod.yml restart
+  ```
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
-## Sponsors
+## 📄 BẢN QUYỀN & THƯƠNG MẠI HÓA
 
-We are grateful to the sponsors who support BottleCRM's continued development and maintenance.
-
-- [MicroPyramid](https://micropyramid.com/)
-
-We warmly welcome new sponsors. If you would like to support BottleCRM and help the project grow, please [get in touch](https://micropyramid.com/contact/).
-
-## Contributors
-
-This project exists thanks to all the people who contributed.
-
-[View all BottleCRM contributors](https://github.com/django-crm/Django-CRM/graphs/contributors).
+Được tối ưu hóa và đóng gói bởi **COSS Vietnam (Trustbase)** dựa trên nền tảng BottleCRM / Django-CRM. Phù hợp triển khai trọn gói cho doanh nghiệp SME, công ty dịch vụ, thương mại và agency tại Việt Nam.
