@@ -6,4 +6,4 @@ WshShell.CurrentDirectory = currentDir
 WshShell.Run "docker compose -f docker-compose.prod.yml up -d", 0, False
 
 WScript.Sleep 1500
-WshShell.Run "cmd /c start """" msedge.exe --app=http://localhost:3000 || start """" chrome.exe --app=http://localhost:3000 || start http://localhost:3000", 0, False
+WshShell.Run "cmd /c start http://localhost:3000", 0, False
