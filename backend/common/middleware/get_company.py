@@ -58,6 +58,7 @@ class GetProfileAndOrg:
     def process_request(self, request):
         # Skip JWT validation for authentication endpoints that don't need org context
         auth_skip_paths = [
+            "/api/auth/login/",
             "/api/auth/google/",
             "/api/auth/refresh-token/",
             "/api/auth/me/",
