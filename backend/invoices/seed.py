@@ -68,113 +68,83 @@ class InvoiceSeeder:
 
     # Product categories
     PRODUCT_CATEGORIES = [
-        "Consulting Services",
-        "Software License",
-        "Implementation",
-        "Training",
-        "Support",
-        "Hardware",
-        "Subscription",
-        "Custom Development",
-        "Integration",
-        "Maintenance",
+        "Dịch vụ Tư vấn",
+        "Bản quyền Phần mềm",
+        "Triển khai & Cài đặt",
+        "Đào tạo Nhân sự",
+        "Bảo trì & Hỗ trợ",
+        "Dịch vụ Cloud",
+        "Tùy biến & Lập trình",
+        "Tích hợp Hệ thống",
     ]
 
-    # Product templates with realistic pricing
+    # Product templates with realistic VNĐ pricing
     PRODUCT_TEMPLATES = [
         {
-            "name": "Consulting - Senior",
-            "category": "Consulting Services",
-            "price_range": (150, 350),
+            "name": "Gói Phần Mềm SME CRM Pro (1 Năm)",
+            "category": "Bản quyền Phần mềm",
+            "price_range": (15000000, 35000000),
         },
         {
-            "name": "Consulting - Standard",
-            "category": "Consulting Services",
-            "price_range": (75, 150),
+            "name": "Gói Doanh Nghiệp Không Giới Hạn User",
+            "category": "Bản quyền Phần mềm",
+            "price_range": (45000000, 90000000),
         },
         {
-            "name": "Implementation Services",
-            "category": "Implementation",
-            "price_range": (5000, 25000),
+            "name": "Dịch Vụ Tư Vấn Chuyển Đổi Số Doanh Nghiệp",
+            "category": "Dịch vụ Tư vấn",
+            "price_range": (8000000, 20000000),
         },
         {
-            "name": "Training Session (Full Day)",
-            "category": "Training",
-            "price_range": (1500, 3500),
+            "name": "Triển Khai & Khảo Sát Quy Trình B2B",
+            "category": "Triển khai & Cài đặt",
+            "price_range": (10000000, 25000000),
         },
         {
-            "name": "Training Session (Half Day)",
-            "category": "Training",
-            "price_range": (800, 1800),
+            "name": "Khóa Đào Tạo Kỹ Năng Bán Hàng & CSKH B2B",
+            "category": "Đào tạo Nhân sự",
+            "price_range": (6000000, 15000000),
         },
         {
-            "name": "Enterprise License",
-            "category": "Software License",
-            "price_range": (10000, 50000),
+            "name": "Gói Bảo Trì & Hỗ Trợ Kỹ Thuật Hàng Năm",
+            "category": "Bảo trì & Hỗ trợ",
+            "price_range": (12000000, 28000000),
         },
         {
-            "name": "Professional License",
-            "category": "Software License",
-            "price_range": (1000, 5000),
+            "name": "Tích Hợp API Zalo OA & Cổng Thanh Toán",
+            "category": "Tích hợp Hệ thống",
+            "price_range": (15000000, 35000000),
         },
         {
-            "name": "Team License (per seat)",
-            "category": "Software License",
-            "price_range": (50, 200),
+            "name": "Gói Thuê Máy Chủ Cloud Chuyên Dụng (12 Tháng)",
+            "category": "Dịch vụ Cloud",
+            "price_range": (18000000, 42000000),
         },
         {
-            "name": "Annual Support Plan",
-            "category": "Support",
-            "price_range": (2000, 10000),
-        },
-        {
-            "name": "Monthly Subscription",
-            "category": "Subscription",
-            "price_range": (99, 499),
-        },
-        {"name": "Premium Support", "category": "Support", "price_range": (500, 2000)},
-        {
-            "name": "Custom Development (per hour)",
-            "category": "Custom Development",
-            "price_range": (100, 250),
-        },
-        {
-            "name": "API Integration",
-            "category": "Integration",
-            "price_range": (3000, 15000),
-        },
-        {"name": "Hardware Setup", "category": "Hardware", "price_range": (500, 2500)},
-        {
-            "name": "Maintenance (Monthly)",
-            "category": "Maintenance",
-            "price_range": (200, 1000),
+            "name": "Gói Chăm Sóc Khách Hàng VIP 24/7",
+            "category": "Bảo trì & Hỗ trợ",
+            "price_range": (5000000, 12000000),
         },
     ]
 
     # Invoice template configurations
     TEMPLATE_CONFIGS = [
         {
-            "name": "Professional Blue",
-            "primary_color": "#3B82F6",
+            "name": "Mẫu Hóa Đơn Doanh Nghiệp Xanh",
+            "primary_color": "#2563EB",
             "secondary_color": "#1E40AF",
             "is_default": True,
         },
         {
-            "name": "Corporate Gray",
+            "name": "Mẫu Báo Giá Hiện Đại",
             "primary_color": "#4B5563",
             "secondary_color": "#1F2937",
             "is_default": False,
         },
         {
-            "name": "Modern Green",
-            "primary_color": "#10B981",
-            "secondary_color": "#047857",
-            "is_default": False,
-        },
-        {
-            "name": "Classic Red",
-            "primary_color": "#EF4444",
-            "secondary_color": "#B91C1C",
+            "name": "Mẫu Hợp Đồng & Thanh Toán",
+            "primary_color": "#059669",
+            "secondary_color": "#065F46",
             "is_default": False,
         },
     ]
