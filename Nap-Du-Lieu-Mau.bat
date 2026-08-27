@@ -6,7 +6,8 @@ echo    DANG XOA DATA CU VA NAP DU LIEU DOANH NGHIEP VIET NAM (SME CRM PRO)...
 echo ==============================================================================
 echo.
 
-:: 1. Chay migrate database
+:: 1. Tao va chay migrate database
+docker compose -f docker-compose.prod.yml exec -T backend python manage.py makemigrations --noinput
 docker compose -f docker-compose.prod.yml exec -T backend python manage.py migrate --noinput
 
 :: 2. Thiet lap tai khoan Admin mac dinh

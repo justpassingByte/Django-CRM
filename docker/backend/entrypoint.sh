@@ -21,6 +21,7 @@ done
 echo "PostgreSQL is ready."
 
 echo "Running migrations..."
+python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 
 echo "Creating default admin user (if needed)..."
