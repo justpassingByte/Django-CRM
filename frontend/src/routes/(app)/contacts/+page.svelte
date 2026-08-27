@@ -16,23 +16,23 @@
   let totals = $derived(data.totals);
 </script>
 
-<PageHeader title="Contacts">
+<PageHeader title="Danh Bạ Người Liên Hệ (Contacts)">
   {#snippet sub()}
-    <span class="v2-num">{count(totals.count)}</span> people
+    <span class="v2-num">{count(totals.count)}</span> người liên hệ
     {#if !data.includeInactive && totals.inactive}
-      · <span class="v2-num">{count(totals.inactive)}</span> inactive hidden
+      · <span class="v2-num">{count(totals.inactive)}</span> ẩn chưa hoạt động
     {/if}
     {#if totals.do_not_call}
-      · <span class="v2-num">{count(totals.do_not_call)}</span> do not call
+      · <span class="v2-num">{count(totals.do_not_call)}</span> không gọi điện
     {/if}
   {/snippet}
   {#snippet actions()}
     {#if data.includeInactive}
-      <a class="v2-btn" href={resolve('/contacts')}>Hide inactive</a>
+      <a class="v2-btn" href={resolve('/contacts')}>Ẩn chưa hoạt động</a>
     {:else}
-      <a class="v2-btn" href={resolve('/contacts?inactive=1')}>Show inactive</a>
+      <a class="v2-btn" href={resolve('/contacts?inactive=1')}>Hiện tất cả</a>
     {/if}
-    <a class="v2-btn v2-btn-primary" href={resolve('/contacts/new')}><Plus />New contact</a>
+    <a class="v2-btn v2-btn-primary" href={resolve('/contacts/new')}><Plus />+ Thêm Người Liên Hệ</a>
   {/snippet}
 </PageHeader>
 

@@ -148,27 +148,22 @@
   });
 </script>
 
-<PageHeader title="Pipeline">
+<PageHeader title="Phễu Bán Hàng & Cơ Hội (Pipeline)">
   {#snippet sub()}
-    <!-- Totals come from the API aggregate, never from the rows on screen.
-         Not "open deals": the default view is now the pipeline's own "All
-         deals" preset (empty params), which includes closed stages, so a word
-         that was only ever true under the old hardcoded ?open=true would lie
-         here as soon as somebody switched presets. -->
-    <span class="v2-num">{count(totals.count)}</span> deals ·
-    <span class="v2-num">{money(totals.amount_sum, data.org.currency)}</span> ·
-    <span class="v2-num">{money(totals.weighted_sum, data.org.currency)}</span> weighted ·
-    <span class="v2-num" style="color:var(--v2-rust)">{totals.stalled_count}</span> stalled
+    <span class="v2-num">{count(totals.count)}</span> cơ hội ·
+    <span class="v2-num">{money(totals.amount_sum, data.org.currency)}</span> tổng giá trị ·
+    <span class="v2-num">{money(totals.weighted_sum, data.org.currency)}</span> trọng số dự báo ·
+    <span class="v2-num" style="color:var(--v2-rust)">{totals.stalled_count}</span> tắc nghẽn
   {/snippet}
   {#snippet actions()}
     {#if view === 'board'}
-      <a class="v2-btn v2-btn-quiet" href={resolve(asInternalPath(listHref))}><List />List</a>
-      <span class="v2-btn" aria-current="true"><Columns3 />Board</span>
+      <a class="v2-btn v2-btn-quiet" href={resolve(asInternalPath(listHref))}><List />Danh sách</a>
+      <span class="v2-btn" aria-current="true"><Columns3 />Bảng Kanban</span>
     {:else}
-      <span class="v2-btn" aria-current="true"><List />List</span>
-      <a class="v2-btn v2-btn-quiet" href={resolve(asInternalPath(boardHref))}><Columns3 />Board</a>
+      <span class="v2-btn" aria-current="true"><List />Danh sách</span>
+      <a class="v2-btn v2-btn-quiet" href={resolve(asInternalPath(boardHref))}><Columns3 />Bảng Kanban</a>
     {/if}
-    <a class="v2-btn v2-btn-primary" href={resolve('/pipeline/new')}><Plus />New deal</a>
+    <a class="v2-btn v2-btn-primary" href={resolve('/pipeline/new')}><Plus />+ Thêm Cơ Hội Mới</a>
   {/snippet}
 </PageHeader>
 

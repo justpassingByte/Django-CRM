@@ -28,22 +28,15 @@
   );
 </script>
 
-<PageHeader title="Accounts">
+<PageHeader title="Khách Hàng Doanh Nghiệp (Accounts)">
   {#snippet sub()}
-    <!-- The count is the size of the whole result set, not of this page. -->
-    <span class="v2-num">{count(totals.count)}</span> accounts
-    <!-- `customers` is counted from the rows actually loaded, because the
-         accounts endpoint returns no aggregate for it (see the note in
-         `lib/server/v2/accounts.js`). Printing it beside a whole-set count
-         when only one page is loaded states a smaller number as though it
-         covered everything, so it is shown only when this page IS the whole
-         set. A figure that disappears beats a figure that is wrong. -->
+    <span class="v2-num">{count(totals.count)}</span> doanh nghiệp
     {#if (totals.shown ?? 0) >= (totals.count ?? 0)}
-      · <span class="v2-num">{count(totals.customers)}</span> with a deal won
+      · <span class="v2-num">{count(totals.customers)}</span> đã chốt hợp đồng thành công
     {/if}
   {/snippet}
   {#snippet actions()}
-    <a class="v2-btn v2-btn-primary" href={resolve('/accounts/new')}><Plus />New account</a>
+    <a class="v2-btn v2-btn-primary" href={resolve('/accounts/new')}><Plus />+ Thêm Doanh Nghiệp</a>
   {/snippet}
 </PageHeader>
 

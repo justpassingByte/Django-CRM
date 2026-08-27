@@ -40,13 +40,13 @@
   };
 </script>
 
-<PageHeader title="Tasks">
+<PageHeader title="Công Việc & Nhiệm Vụ (Tasks)">
   {#snippet sub()}
-    <span class="v2-num">{count(totals.open)}</span> open ·
-    <span class="v2-num" style="color:var(--v2-rust)">{count(totals.overdue)}</span> overdue
+    <span class="v2-num">{count(totals.open)}</span> đang thực hiện ·
+    <span class="v2-num" style="color:var(--v2-rust)">{count(totals.overdue)}</span> quá hạn
   {/snippet}
   {#snippet actions()}
-    <a class="v2-btn v2-btn-primary" href={resolve('/tasks/new')}><Plus />New task</a>
+    <a class="v2-btn v2-btn-primary" href={resolve('/tasks/new')}><Plus />+ Thêm Nhiệm Vụ</a>
   {/snippet}
 </PageHeader>
 

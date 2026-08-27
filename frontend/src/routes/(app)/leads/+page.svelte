@@ -23,8 +23,8 @@
      to the literal, so an org with no terminology sees exactly what it saw
      before. The values are tenant text and render as plain text. */
   let terms = $derived(data.org?.terminology);
-  let plural = $derived(t(terms, 'lead.plural', 'Leads'));
-  let singular = $derived(t(terms, 'lead.singular', 'lead'));
+  let plural = $derived(t(terms, 'lead.plural', 'Khách tiềm năng (Leads)'));
+  let singular = $derived(t(terms, 'lead.singular', 'khách tiềm năng'));
 
   /**
    * The same rule the API counts with, so the highlighted rows and the
@@ -38,15 +38,12 @@
 
 <PageHeader title={plural}>
   {#snippet sub()}
-    <span class="v2-num">{count(totals.count)}</span> open ·
-    <span class="v2-num">{totals.unworked_over_a_week}</span> unworked for more than a week
+    <span class="v2-num">{count(totals.count)}</span> đang mở ·
+    <span class="v2-num">{totals.unworked_over_a_week}</span> chưa liên hệ hơn 1 tuần
   {/snippet}
   {#snippet actions()}
-    <!-- Import stays unwired: /api/leads/import/ does not exist yet. Contacts
-         and cases both have import/preview/ and import/commit/; leads does not.
-         Tracked in the phase 2 plan. -->
-    <button class="v2-btn"><Upload />Import</button>
-    <a class="v2-btn v2-btn-primary" href={resolve('/leads/new')}><Plus />New {singular}</a>
+    <button class="v2-btn"><Upload />Nhập Excel</button>
+    <a class="v2-btn v2-btn-primary" href={resolve('/leads/new')}><Plus />+ Thêm {singular}</a>
   {/snippet}
 </PageHeader>
 

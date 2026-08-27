@@ -26,11 +26,11 @@
 
     <div class="v2-auth-card">
       <div class="v2-auth-head">
-        <h1>Choose an organisation</h1>
+        <h1>Chọn Không Gian Làm Việc</h1>
         <p>
           {orgs.length
-            ? "Pick the workspace you'd like to open."
-            : 'Create your first workspace to get started.'}
+            ? 'Chọn tổ chức doanh nghiệp bạn muốn truy cập để bắt đầu.'
+            : 'Tạo không gian làm việc đầu tiên của bạn để bắt đầu.'}
         </p>
       </div>
 
@@ -72,16 +72,16 @@
 
         <a href={resolve('/org/new')} class="v2-auth-add">
           <Plus />
-          Create new organisation
+          + Tạo tổ chức doanh nghiệp mới
         </a>
       {:else}
         <div class="v2-state" style="padding:22px 0 8px">
           <div class="v2-state-icon"><Building2 size={22} /></div>
-          <h3>No organisations yet</h3>
-          <p>Create your first workspace to start using BottleCRM.</p>
+          <h3>Chưa có tổ chức nào</h3>
+          <p>Tạo không gian làm việc đầu tiên để bắt đầu sử dụng SME CRM Pro.</p>
           <a href={resolve('/org/new')} class="v2-btn v2-btn-primary">
             <Plus size={15} />
-            Create organisation
+            Tạo tổ chức mới
           </a>
         </div>
       {/if}
@@ -89,7 +89,7 @@
 
     <div class="v2-auth-foot">
       <a href={resolve('/logout')} style="display:inline-flex;align-items:center;gap:5px">
-        <LogOut size={13} /> Sign out
+        <LogOut size={13} /> Đăng xuất
       </a>
     </div>
   </div>

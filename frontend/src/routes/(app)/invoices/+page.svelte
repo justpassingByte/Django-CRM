@@ -41,17 +41,13 @@
     !SETTLED.includes(inv.status) && inv.due_date && daysSince(inv.due_date) > 0;
 </script>
 
-<PageHeader title="Invoices">
+<PageHeader title="Hóa Đơn & Báo Giá (Invoices)">
   {#snippet sub()}
-    <!--
-      These aggregates come from the API over the whole result set. v1 summed
-      the loaded page, so a 50-row list showed pills adding up to 10.
-    -->
-    <span class="v2-num">{count(totals.count)}</span> invoices ·
-    <span class="v2-num">{money(totals.outstanding, data.org.currency)}</span> outstanding
+    <span class="v2-num">{count(totals.count)}</span> hóa đơn ·
+    <span class="v2-num">{money(totals.outstanding, data.org.currency)}</span> còn phải thu
   {/snippet}
   {#snippet actions()}
-    <a class="v2-btn v2-btn-primary" href={resolve('/invoices/new')}><Plus />New invoice</a>
+    <a class="v2-btn v2-btn-primary" href={resolve('/invoices/new')}><Plus />+ Tạo Hóa Đơn</a>
   {/snippet}
 </PageHeader>
 
@@ -63,26 +59,26 @@
 <div class="v2-pad" style="padding-top:16px;flex:none">
   <div class="v2-stats">
     <StatCard
-      label="Overdue"
+      label="Quá hạn thanh toán"
       value={money(totals.overdue, data.org.currency)}
       tone="rust"
-      detail="Chase these first"
+      detail="Cần thu hồi sớm"
     />
     <StatCard
-      label="Due this month"
+      label="Đến hạn trong tháng"
       value={money(totals.due_this_month, data.org.currency)}
       tone="clay"
     />
     <StatCard
-      label="Paid this quarter"
+      label="Đã thu trong quý"
       value={money(totals.paid_this_quarter, data.org.currency)}
       tone="moss"
     />
     <StatCard
-      label="Draft"
+      label="Bản nháp"
       value={money(totals.draft, data.org.currency)}
       tone="slate"
-      detail="Not sent yet"
+      detail="Chưa gửi khách"
     />
   </div>
 </div>

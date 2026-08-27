@@ -86,16 +86,16 @@
   const value = (g, n) => (g.goal_type === 'REVENUE' ? money(n, data.org.currency) : count(n));
 </script>
 
-<PageHeader title="Goals">
+<PageHeader title="Mục Tiêu Doanh Số (KPI Goals)">
   {#snippet sub()}
-    <span class="v2-num">{money(totals.achieved, data.org.currency)}</span> of
-    <span class="v2-num">{money(totals.target, data.org.currency)}</span> across
-    <span class="v2-num">{count(totals.active)}</span> active goals
+    Đã đạt <span class="v2-num">{money(totals.achieved, data.org.currency)}</span> /
+    chỉ tiêu <span class="v2-num">{money(totals.target, data.org.currency)}</span> trên
+    <span class="v2-num">{count(totals.active)}</span> mục tiêu đang chạy
   {/snippet}
   {#snippet actions()}
-    <a class="v2-btn" href={resolve('/goals/history')}><History />History</a>
+    <a class="v2-btn" href={resolve('/goals/history')}><History />Lịch sử mục tiêu</a>
     {#if data.can_edit}
-      <a class="v2-btn v2-btn-primary" href={resolve('/goals/new')}><Plus />New goal</a>
+      <a class="v2-btn v2-btn-primary" href={resolve('/goals/new')}><Plus />+ Thêm Mục Tiêu</a>
     {/if}
   {/snippet}
 </PageHeader>

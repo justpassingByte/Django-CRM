@@ -48,12 +48,10 @@
   // list the sentence had just promised to lead with.
   let subText = $derived(
     summary.count === 0
-      ? 'Nothing needs you right now: you’re all clear for today.'
+      ? 'Không có việc tồn đọng: Bạn đã hoàn thành tất cả nhiệm vụ hôm nay.'
       : summary.quiet_deals === 0
-        ? `${plural(summary.count, 'thing wants', 'things want')} you today.`
-        : `${plural(summary.count, 'thing wants', 'things want')} you today. ` +
-          `${plural(summary.quiet_deals, 'deal', 'deals')} worth ${money(summary.quiet_value, data.org.currency)} ` +
-          `${summary.quiet_deals === 1 ? 'has' : 'have'} gone quiet.`
+        ? `Có ${summary.count} việc cần xử lý hôm nay.`
+        : `Có ${summary.count} việc cần xử lý hôm nay. Có ${summary.quiet_deals} cơ hội trị giá ${money(summary.quiet_value, data.org.currency)} cần theo dõi.`
   );
 
   // The queue shows the most urgent 8. Everything past that is real work with
@@ -62,7 +60,7 @@
   let hidden = $derived(Math.max(0, summary.count - summary.shown));
 </script>
 
-<PageHeader title="Today">
+<PageHeader title="Bảng Điều Khiển Hôm Nay">
   {#snippet sub()}{subText}{/snippet}
 </PageHeader>
 
@@ -96,11 +94,10 @@
     {/each}
 
     {#if queue.length && hidden === 0}
-      <p class="v2-sub" style="margin:15px 0 21px;font-size:12.5px">That’s everything due today.</p>
+      <p class="v2-sub" style="margin:15px 0 21px;font-size:12.5px">Đó là toàn bộ công việc và hợp đồng cần xử lý hôm nay.</p>
     {:else if queue.length}
       <p class="v2-sub" style="margin:15px 0 21px;font-size:12.5px">
-        <span class="v2-num">{hidden}</span>
-        {hidden === 1 ? 'more is' : 'more are'} waiting:
+        Còn <span class="v2-num">{hidden}</span> mục đang chờ:
         {#each summary.sources as source, i (source.href)}<a
             href={resolve(source.href)}
             style="color:inherit">{source.count} {source.label}</a
@@ -109,9 +106,9 @@
     {:else}
       <div class="v2-card" style="margin-bottom:8px">
         <div class="v2-pad" style="padding:20px;text-align:center">
-          <div style="font-weight:640;letter-spacing:-0.012em">Inbox zero for today</div>
+          <div style="font-weight:640;letter-spacing:-0.012em">Tuyệt vời! Không có công việc quá hạn</div>
           <div class="v2-sub" style="margin-top:3px">
-            No overdue tickets, invoices, quiet deals or tasks. Anything coming up is below.
+            Không có ticket quá hạn, hóa đơn trễ, hợp đồng tắc nghẽn hay nhiệm vụ trễ hạn.
           </div>
         </div>
       </div>
@@ -129,7 +126,7 @@
     {#if goals.length}
       <div class="v2-label" style="margin:6px 0 9px">
         <Target size={12} style="vertical-align:-1px;margin-right:4px" />
-        Where you stand
+        Tiến độ Mục tiêu KPI
       </div>
       <div class="goals">
         {#each goals as g (g.id)}
@@ -152,7 +149,7 @@
     {/if}
 
     {#if later.length}
-      <div class="v2-label" style="margin:6px 0 9px">Later this week</div>
+      <div class="v2-label" style="margin:6px 0 9px">Kế hoạch tuần này</div>
       {#each later as row (row.id)}
         <div
           style="display:flex;gap:13px;align-items:baseline;padding:9px 3px;border-bottom:1px solid var(--v2-line-soft)"
