@@ -123,8 +123,9 @@ export const actions = {
 
     try {
       const apiUrl = publicEnv.PUBLIC_DJANGO_API_URL || 'http://backend:8000';
+      const cleanApiUrl = apiUrl.replace('http://localhost:8000', 'http://backend:8000').replace('http://127.0.0.1:8000', 'http://backend:8000');
       const response = await axios.post(
-        `${apiUrl}/api/auth/login/`,
+        `${cleanApiUrl}/api/auth/login/`,
         { email, password },
         { headers: { 'Content-Type': 'application/json' }, timeout: 10000 }
       );
@@ -147,7 +148,8 @@ export const actions = {
         maxAge: 60 * 60 * 24 * 365 // 1 year
       });
     } catch (error) {
-      const msg = error.response?.data?.error || 'Email hoặc Mật khẩu không chính xác!';
+      console.error('Password login error:', error.message, error.response?.data);
+      const msg = error.response?.data?.error || (error.code === 'ECONNREFUSED' ? 'Khong the ket noi den Backend API (smecrm-api:8000)' : error.message);
       return fail(401, { error: msg });
     }
 

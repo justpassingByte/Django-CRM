@@ -100,7 +100,7 @@ services:
     container_name: smecrm-web
     restart: always
     environment:
-      - PUBLIC_DJANGO_API_URL=${PUBLIC_DJANGO_API_URL:-http://localhost:8000}
+      - PUBLIC_DJANGO_API_URL=http://backend:8000
       - ORIGIN=${ORIGIN:-http://localhost:3000}
       - PORT=3000
     ports:

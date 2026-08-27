@@ -7,7 +7,8 @@
 
 import { env } from '$env/dynamic/public';
 
-const API_BASE_URL = `${env.PUBLIC_DJANGO_API_URL}/api`;
+const rawApiUrl = env.PUBLIC_DJANGO_API_URL || 'http://backend:8000';
+const API_BASE_URL = `${rawApiUrl.replace('http://localhost:8000', 'http://backend:8000').replace('http://127.0.0.1:8000', 'http://backend:8000')}/api`;
 
 /**
  * @typedef {import('@sveltejs/kit').Cookies} Cookies

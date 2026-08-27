@@ -15,7 +15,8 @@ import axios from 'axios';
 import { env } from '$env/dynamic/public';
 import { describeError } from '$lib/server/log-safe.js';
 
-const API_BASE_URL = `${env.PUBLIC_DJANGO_API_URL}/api`;
+const rawApiUrl = env.PUBLIC_DJANGO_API_URL || 'http://backend:8000';
+const API_BASE_URL = `${rawApiUrl.replace('http://localhost:8000', 'http://backend:8000').replace('http://127.0.0.1:8000', 'http://backend:8000')}/api`;
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 /**
