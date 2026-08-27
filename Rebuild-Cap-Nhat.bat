@@ -2,21 +2,24 @@
 cd /d "%~dp0"
 
 echo ==============================================================================
-echo    DANG BUILD LAI HE THONG SME CRM PRO (CAP NHAT CODE & DANG NHAP MOI)...
+echo    DANG BUILD LAI HE THONG SME CRM PRO
 echo ==============================================================================
 echo.
 
-:: 1. Build lai toan bo container (Backend API + Frontend SvelteKit)
+:: 1. Build lai toan bo container
 docker compose -f docker-compose.prod.yml up -d --build
 
 echo.
 echo ==============================================================================
-echo    DANG THIET LAP TAI KHOAN ADMIN & NAP DU LIEU MAU...
+echo    DANG DONG BO DU LIEU VA TAI KHOAN ADMIN
 echo ==============================================================================
 echo.
 
-:: 2. Thiet lap tai khoan admin@smecrm.vn / testpass123
-docker compose -f docker-compose.prod.yml exec backend python manage.py setup_admin --email admin@smecrm.vn --password testpass123
+:: Cho backend san sang 5 giay
+timeout /t 5 /nobreak > nul
+
+docker compose -f docker-compose.prod.yml exec -T backend python manage.py setup_admin --email admin@smecrm.vn --password testpass123
+docker compose -f docker-compose.prod.yml exec -T backend python manage.py seed_data --email admin@smecrm.vn --password testpass123 --orgs 1 --leads 30 --accounts 15 --contacts 20 --opportunities 10 --cases 5 --tasks 15 --no-input
 
 echo.
 echo ==============================================================================
