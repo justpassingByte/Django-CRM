@@ -389,6 +389,7 @@ PERIOD_TYPES = (
 )
 
 CURRENCY_CODES = (
+    ("VND", _("VND, Đồng")),
     ("USD", _("USD, Dollar")),
     ("EUR", _("EUR, Euro")),
     ("GBP", _("GBP, Pound")),
@@ -405,6 +406,7 @@ CURRENCY_CODES = (
 )
 
 CURRENCY_SYMBOLS = {
+    "VND": "₫",
     "USD": "$",
     "EUR": "€",
     "GBP": "£",
